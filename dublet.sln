@@ -11,13 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameWork", "Framework\Fram
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B87E95E8-8B82-4D08-824A-53BCBD651B82}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\sharedimages\20220809\dublet.png = ..\..\..\sharedimages\20220809\dublet.png
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{0CBB6CD0-0314-4D46-BAC6-791E3CB81691}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\sharedimages\20220809\dublet.png = ..\..\..\sharedimages\20220809\dublet.png
+		images\dublet.png = images\dublet.png
 	EndProjectSection
 EndProject
 Global
