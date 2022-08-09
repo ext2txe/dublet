@@ -3,3 +3,9 @@
 ################################################################################
 
 /dublet/bin/Debug
+/dublet/obj
+/dubletLib/bin/Debug
+/dubletLib/obj
+/Framework/bin
+/Framework/obj
+/.vs/dublet
