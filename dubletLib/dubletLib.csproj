@@ -13,6 +13,7 @@
     <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,9 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +51,19 @@
     <Compile Include="HelperLoadResource.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebViewSettings.cs" />
+    <Compile Include="UcTabPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcTabPage.Designer.cs">
+      <DependentUpon>UcTabPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebView2Controller.cs" />
+    <Compile Include="DubletSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HTML\index.html" />
     <Content Include="JavaScript\TestButtonClick.js" />
+    <Content Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2">
@@ -62,6 +75,11 @@
       <Project>{07bccc4b-2e19-45bb-b81c-9d7f252e1af8}</Project>
       <Name>FrameWork</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UcTabPage.resx">
+      <DependentUpon>UcTabPage.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

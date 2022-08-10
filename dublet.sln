@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrameWork", "Framework\Fram
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B87E95E8-8B82-4D08-824A-53BCBD651B82}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\media\icons\codaland\codalogo_flatred.ico = ..\..\..\media\icons\codaland\codalogo_flatred.ico
+		logo.ico = logo.ico
 		README.md = README.md
 	EndProjectSection
 EndProject

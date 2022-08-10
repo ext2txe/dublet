@@ -1,73 +1,22 @@
-﻿using Microsoft.Web.WebView2.Core;
-using Microsoft.Web.WebView2.WinForms;
+﻿using Microsoft.Web.WebView2.WinForms;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Windows.Forms;
 
-namespace TwinBrowserWindows
+namespace dubletLib
 {
-    public partial class Form1 : Form
+    public class WebView2Controller
     {
-        public Form1()
+        public Label StatusTextBox = null;
+        public UcTabPage TabParent = null;
+
+        public string Name = null;
+        public WebView2Controller(WebView2 wv)
         {
-            InitializeComponent();
-            InitializeBrowsers();
-        }
-
-        private async void InitializeBrowsers()
-        {
-            await wv1.EnsureCoreWebView2Async();
-            SetWebView2EventHandlers(wv1);
-            
-            await wv2.EnsureCoreWebView2Async();
-            SetWebView2EventHandlers(wv2);
-
-            await wv3.EnsureCoreWebView2Async();
-            SetWebView2EventHandlers(wv3);
-
-            await wv4.EnsureCoreWebView2Async();
-            SetWebView2EventHandlers(wv4);
-
-            await wv5.EnsureCoreWebView2Async();
-            SetWebView2EventHandlers(wv5);
-
-            btnGo1_Click(null, null);
-            btnGo2_Click(null, null);
-            btnGo5_Click(null, null);
-
-
-        }
-
-        private void btnGo1_Click(object sender, EventArgs e)
-        {
-            wv1.Source = new Uri(textUrl1.Text);
-        }
-
-        private void btnGo2_Click(object sender, EventArgs e)
-        {
-            wv2.Source = new Uri(textUrl2.Text);
+            SetWebView2EventHandlers(wv);
         }
 
 
-        private void btnGo5_Click(object sender, EventArgs e)
-        {
-            wv5.Source = new Uri(textUrl5.Text);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            wv3.CoreWebView2.NavigateToString(textUrl3.Text);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            wv4.CoreWebView2.NavigateToString(textUrl4.Text);
-        }
-
-
-        private void btnGoUpwork_Click(object sender, EventArgs e)
-        {
-            wv5.CoreWebView2.NavigateToString(textUrl5.Text);
-        }
         /// <summary>
         /// set event handlers for WebView2
         /// </summary>
@@ -76,7 +25,7 @@ namespace TwinBrowserWindows
         private void SetWebView2EventHandlers(WebView2 wv)
         {
             string senderName = wv.Name;
-//            LogMsg("SetWebView2EventHandlers() called");
+            //            LogMsg("SetWebView2EventHandlers() called");
 
             int step = 10;
             try
@@ -136,10 +85,11 @@ namespace TwinBrowserWindows
         private void LogMsg(string msg)
         {
             string m = $"{DateTime.Now.ToString("hh:MM:ss.fff")} - {msg}" + Environment.NewLine;
-            textLog.AppendText(m);
+            if (StatusTextBox != null)
+            {
+                StatusTextBox.Text = m;
+            }
         }
-
-
 
         private void NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
@@ -148,18 +98,18 @@ namespace TwinBrowserWindows
 
         private void SourceChanged(object sender, CoreWebView2SourceChangedEventArgs e)
         {
-            
+
         }
 
         private void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
-            LogMsg( $"{Name} : {e.Uri}");
+            LogMsg($"{Name} : {e.Uri}");
 
         }
 
         private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-            
+
             //textLog.AppendText(e.)
         }
 
@@ -168,16 +118,15 @@ namespace TwinBrowserWindows
             e.Handled = true;
 
             //e.NewWindow = null;            
-            wv3.Source = new Uri(e.Uri);
-            wv3.Refresh();
+            TabParent.NewPage(e.Uri);
+            //wv3.Source = new Uri(e.Uri);
+            //wv3.Refresh();
         }
 
         private void HandleException(string msg)
         {
             throw new NotImplementedException();
         }
+
     }
-
-
-
 }
