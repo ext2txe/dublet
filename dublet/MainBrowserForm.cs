@@ -251,6 +251,11 @@ namespace dublet
             _settings.SplitterDistance1 = splitContainer1.SplitterDistance;
             _settings.SplitterDistance2 = splitContainer1.SplitterDistance;
         }
+
+        private void tabControlLeft_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
