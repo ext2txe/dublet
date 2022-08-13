@@ -18,6 +18,8 @@ namespace Framework
         public SystemWindow CurrentWindow = null;
         public Bitmap CurrentBitmap = null;
 
+        public string Version = "0.1.3";
+        public string ProjectName = "dublet";
         public WinUtils(Logger logger = null)
         {
             Logger = logger;

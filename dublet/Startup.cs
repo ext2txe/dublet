@@ -1,9 +1,4 @@
 ﻿using Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dublet
 {
@@ -11,12 +6,14 @@ namespace dublet
     {
         private void Startup()
         {
-            _settings = new dubletLib.DubletSettings();
+            _project = new dubletLib.DubletProject();
+            _settings = _project.Settings;
 
             BaseUtils.GeometryFromString(_settings.WindowGeometry, this);
 
             splitContainer1.SplitterDistance = _settings.SplitterDistance1;
             splitContainer2.SplitterDistance = _settings.SplitterDistance2;
+            Text = $"{_project.ProjectName} v{_project.Version}";
         }
     }
 }

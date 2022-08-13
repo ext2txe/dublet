@@ -9,14 +9,34 @@ namespace dublet
 {
     public partial class MainBrowserForm : Form
     {
+        private DubletProject _project = null;
         private DubletSettings _settings = null;
 
         public MainBrowserForm()
         {
             InitializeComponent();
             Startup();
-            InitializeBrowsers();
+            InitializeBrowsers2();  // PoC
+            //InitializeBrowsers();
         }
+
+        private BrowserTab tab1 = null;
+        private async void InitializeBrowsers2()
+        {
+            int step = 10;
+            try
+            {
+                tab1 = new BrowserTab("Tab 1");
+                tabControl1.TabPages.Add(tab1.Tab);
+                tabControl1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                throw new Exception(msg);   
+            }
+        }
+
 
         private async void InitializeBrowsers()
         {
@@ -218,8 +238,7 @@ namespace dublet
             try
             { 
                 TabPage _tab = tabControl1.TabPages[index];
-                WebView2 wv2 = new WebView2();
-                UcTabPage newTab = new UcTabPage(wv2);
+                UcTabPage newTab = new UcTabPage("about:blank");
                 _tab.Controls.Add(newTab);
                 // move tab one position to the left
             }
@@ -256,8 +275,12 @@ namespace dublet
         {
 
         }
+
+        private void debugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string s = "here we are...";
+            tsStatusText.Text = s;
+            this.Refresh();
+        }
     }
-
-
-
 }

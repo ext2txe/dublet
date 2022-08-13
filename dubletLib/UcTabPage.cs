@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using dubletLib;
 using Microsoft.Web.WebView2.WinForms;
+using Microsoft.Web.WebView2.Core;
+using System.Threading.Tasks;
 
 namespace dubletLib
 {
@@ -10,10 +11,22 @@ namespace dubletLib
         public WebView2Controller wvController = null;
         private WebView2 _wv2 = null;
 
-        public UcTabPage(WebView2 wv2)
+        public WebView2 WV { get => wv2;  set => wv2 = value; }
+        public string Url { get => textUrl2.Text; set => textUrl2.Text = value; }
+
+        public UcTabPage(string url)
         {
-            _wv2 = wv2;
+            InitWebView();
             InitializeComponent();
+        }
+
+        private async Task InitWebView()
+        {
+            WV = new WebView2();
+
+            await WV.EnsureCoreWebView2Async();
+
+            return ;
         }
 
         public void NewPage(string uri)

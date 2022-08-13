@@ -52,7 +52,7 @@
             // 
             // pnlTop2
             // 
-            this.pnlTop2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.pnlTop2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTop2.Controls.Add(this.btnGo2);
             this.pnlTop2.Controls.Add(this.textUrl2);
@@ -73,7 +73,7 @@
             // 
             // textUrl2
             // 
-            this.textUrl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textUrl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textUrl2.Location = new System.Drawing.Point(10, 6);
             this.textUrl2.Name = "textUrl2";
@@ -82,8 +82,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.wv2);
             this.panel1.Location = new System.Drawing.Point(0, 40);
@@ -103,12 +103,12 @@
             this.wv2.TabIndex = 0;
             this.wv2.ZoomFactor = 1D;
             // 
-            // ucTabPage
+            // UcTabPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlBack);
-            this.Name = "ucTabPage";
+            this.Name = "UcTabPage";
             this.Size = new System.Drawing.Size(716, 691);
             this.pnlBack.ResumeLayout(false);
             this.pnlTop2.ResumeLayout(false);
@@ -126,6 +126,6 @@
         private System.Windows.Forms.Button btnGo2;
         private System.Windows.Forms.TextBox textUrl2;
         private System.Windows.Forms.Panel panel1;
-        private Microsoft.Web.WebView2.WinForms.WebView2 wv2;
+        public Microsoft.Web.WebView2.WinForms.WebView2 wv2;
     }
 }
